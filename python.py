@@ -1,15 +1,16 @@
 import tkinter as tk
 
-def check_answers():
-    # Correct answers for the crossword
-    correct_answers = [
-        ['', '', 'a','', '', 'p', ''],
-        ['j', 'u', 'p', 'i', 't', 'e', 'r'],
-        ['', '', 'p', '', '', 'n', ''],
-        ['d', 'e', 'l', 'h', 'i', '', ''],
-        ['', '', 'e', '', '', '', '']
-    ]
+# Correct answers for the crossword
+correct_answers = [
+    ['', '', 'a','', '', 'p', ''],
+    ['j', 'u', 'p', 'i', 't', 'e', 'r'],
+    ['', '', 'p', '', '', 'n', ''],
+    ['d', 'e', 'l', 'h', 'i', '', ''],
+    ['', '', 'e', '', '', '', '']
+]
 
+def check_answers():
+    
     is_correct=True
     for row in range(5):
         for column in range(7):
@@ -23,7 +24,7 @@ def check_answers():
 root = tk.Tk()
 root.title("Crossword")
 
-# Create a 3x3 grid of entry boxes and store them in a list
+# Create a 5x7 grid of entry boxes and store them in a list
 entry_grid = []
 
 for row in range(5):
@@ -33,6 +34,13 @@ for row in range(5):
         entry.grid(row=row, column=column, padx=5, pady=5)
         entry_row.append(entry)
     entry_grid.append(entry_row)
+
+# Blacken unused boxes based on correct_answers
+for row in range(5):
+    for column in range(7):
+        if correct_answers[row][column] == '':
+            entry_grid[row][column].config(bg='black', state='disabled', relief='flat', highlightthickness=0)
+
 
 # Create a check button
 check_button = tk.Button(root, text="Check", command=check_answers)
@@ -55,6 +63,7 @@ hints = [
 for i, hint in enumerate(hints):
     hint_label = tk.Label(root, text=hint)
     hint_label.grid(row=7+i, column=0, columnspan=7, sticky='w', padx=5, pady=2)
+
 
 # Start the main event loop
 root.mainloop()
