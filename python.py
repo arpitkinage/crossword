@@ -30,8 +30,8 @@ entry_grid = []
 for row in range(5):
     entry_row = []
     for column in range(7):
-        entry = tk.Entry(root, width=2, justify='center')
-        entry.grid(row=row, column=column, padx=5, pady=5)
+        entry = tk.Entry(root, width=4, justify='center')
+        entry.grid(row=row, column=column, padx=15, pady=15)
         entry_row.append(entry)
     entry_grid.append(entry_row)
 
