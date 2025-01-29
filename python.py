@@ -112,25 +112,20 @@ def reveal4():
 revealallbutton = tk.Button(root, text="Reveal All Answers", command=revealall)
 revealallbutton.grid(row=5, column=4, columnspan=3)
 
-revealbutton1 = tk.Button(root, text="Reveal", command=reveal1)
-revealbutton1.grid(row=8, column=6)
-
-revealbutton2 = tk.Button(root, text="Reveal", command=reveal2)
-revealbutton2.grid(row=9, column=6)
-
-revealbutton3 = tk.Button(root, text="Reveal", command=reveal3)
-revealbutton3.grid(row=10, column=6)
-
-revealbutton4 = tk.Button(root, text="Reveal", command=reveal4)
-revealbutton4.grid(row=11, column=6)
-
-# Randomly choose one text for all reveal buttons
 revealtext = ["Reveal", "Show Answer", "Unveil", "Solution"]
 randomtext = random.choice(revealtext)
-revealbutton1.config(text=randomtext)
-revealbutton2.config(text=randomtext)
-revealbutton3.config(text=randomtext)
-revealbutton4.config(text=randomtext)
+
+revealbutton1 = tk.Button(root, text=randomtext, command=reveal1)
+revealbutton1.grid(row=8, column=6)
+
+revealbutton2 = tk.Button(root, text=randomtext, command=reveal2)
+revealbutton2.grid(row=9, column=6)
+
+revealbutton3 = tk.Button(root, text=randomtext, command=reveal3)
+revealbutton3.grid(row=10, column=6)
+
+revealbutton4 = tk.Button(root, text=randomtext, command=reveal4)
+revealbutton4.grid(row=11, column=6)
 
 # Create a submit button
 submit = tk.Button(root, text="Submit", command=checkanswers)
